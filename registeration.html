@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register for Stationary Store</title>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <script>
+      function validateForm() {
+			var Name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var password = document.getElementById("password").value;
+      var cnfpassword = document.getElementById("confirm-password").value;
+			var address = document.getElementById("address").value;
+			var country = document.getElementById("country").value;
+			var zipcode = document.getElementById("zipcode").value;
+      
+      if (name.trim() ==""){
+        alert("Name cannot be blank");
+        return false;
+      }
+
+      if (email.trim() =="") {
+        alert("Email cannot be blank");
+        return false;
+      }
+
+      if (password.trim() == '') {
+        alert("Password cannot be blank");
+        return false;
+      }
+      
+      if (password.length < 7 || password.length > 12) {
+        alert("Password must be between 7 to 12 characters in length");
+        return false;
+      }
+
+      if(country == ""){
+        alert("Must select a country");
+        return false;
+      }
+
+      if (zipcode.trim() =="") {
+        alert("Zipcode cannot be blank")
+        return false;
+      }
+    }
+    </script>
+  </head>
+
+  <body>
+    <h1>Register for Stationary Store</h1>
+    <form onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" minlength="8" required>
+
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" minlength="8" required>
+
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="4" required></textarea>
+
+      <label for="country">Country:</label>
+			<select id="country">
+				<option value="">Select a country</option>
+				<option value="India">India</option>
+				<option value="Other">Other</option>
+			</select>
+
+      <label for="zipcode">Zipcode:</label>
+			<input type="text" id="zipcode">
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>
